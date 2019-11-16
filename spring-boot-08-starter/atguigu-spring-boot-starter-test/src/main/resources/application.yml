@@ -1,0 +1,5 @@
+atguigu:
+  hello:
+    prefix: "*prefix*"
+    suffix: "*suffix*"
+debug: true

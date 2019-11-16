@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.netposa.isdalogupaliyun.springbootzhsq.dao.LogUpAliyunDao">
+    <resultMap id="logUpAliyunResultMap" type="com.netposa.isdalogupaliyun.springbootzhsq.entities.LogUpAliyun">
+        <id property="logID" column="id" />
+        <result property="productID" column="ProductID"/>
+        <result property="productName" column="ProductName"/>
+        <result property="operateResult" column="OperatorResult"/>
+        <result property="querySql" column="Sql"/>
+        <result property="organizationName" column="organization"/>
+    </resultMap>
+
+    <select id="getLog" resultMap="logUpAliyunResultMap" parameterType="com.netposa.isdalogupaliyun.springbootzhsq.entities.LogUpAliyun">
+      select * from sys_operatorlog_ali t
+      <where>
+          <if test="maxId != null and maxId != 0">
+              t.id > #{maxId}
+          </if>
+      </where>
+    </select>
+    
+    <select id="getMaxId" resultType="java.lang.Integer">
+      select MAX(id) from sys_operatorlog_ali
+    </select>
+</mapper>

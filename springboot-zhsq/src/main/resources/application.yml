@@ -1,0 +1,15 @@
+server:
+  port: 29192
+zhsq:
+  logUpAliyunLocal: E:\MySource\IDEA_project\study-springboot\atguigu\springboot-zhsq\src\main\resources\LogUpAliyun.log
+  productId: 310000000101
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://15.112.23.17:3306/intellisense_business?characterEncoding=utf8
+logging:
+  level:
+    com.netposa.isdalogupaliyun.springbootzhsq.dao: debug
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
